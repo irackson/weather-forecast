@@ -9,7 +9,10 @@ Creator:  Joe Keohan<br>
 
 In this exercise, you will practice creating reusable React Components.
 
-Use the following [CodeSandbox Starter](https://codesandbox.io/s/adoring-goodall-mhive) code
+Use the following [CodeSandbox Starter](https://codesandbox.io/s/adoring-goodall-mhive) code to replicate the following HTML with react:
+
+<img src="https://i.imgur.com/mX2VNh1.png
+" width=500/><br>
 
 #### React Hierarchy
 

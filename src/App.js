@@ -1,10 +1,16 @@
+//! import dependencies
+import { Route, Switch } from 'react-router-dom';
+import { useContext } from 'react';
+
+//! import stylesheets
 import 'App.scss';
 
+//! import components
 import Header from 'components/Header';
+
+//! import pages
 import Settings from 'pages/Settings';
 import Home from 'pages/Home';
-
-import { Route, Switch } from 'react-router-dom';
 
 function App() {
     return (
