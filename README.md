@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+[![wakatime](https://wakatime.com/badge/github/irackson/weather-forecast.svg)](https://wakatime.com/badge/github/irackson/weather-forecast)
+
+# Weather Forecast
+
+#### unit-3 react hw
+
+## LEARNING GOALS
+
+-   Sass over CSS
+-   styled-components
+-   react-router with settings page for style customization
+-   useReducer and useContext for global access to style customizations
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
