@@ -14,7 +14,7 @@ import Home from 'pages/Home';
 import GodMode from 'pages/GodMode';
 
 //! import data
-const { weatherDataSeed: seed } = require('weatherDataSeed');
+const { weatherDataSeed: seed } = require('context/weatherDataSeed');
 
 const DataContext = createContext(seed);
 
@@ -33,13 +33,6 @@ export default function App() {
                             render={(props) => <Home {...props} />}
                         ></Route>
                         {data.map((e, i) => (
-                            // <Route
-                            //     exact
-                            //     path={`/${i + 1}`}
-                            //     render={(props) => (
-                            //         <GodMode {...props} id={i} />
-                            //     )}
-                            // ></Route>
                             <Route
                                 exact
                                 path={`/${i + 1}`}

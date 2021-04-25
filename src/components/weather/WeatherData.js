@@ -5,17 +5,24 @@ const BoldSpan = styled.span`
     padding-right: 0.5rem;
 `;
 
+const P = styled.p`
+    margin: 0.5rem;
+    font-size: 1rem;
+    overflow: visible;
+`;
+
 function WeatherData({ conditions, time }) {
     return (
         <div>
-            <p>
+            <P>
                 <BoldSpan>conditions:</BoldSpan>
+                <br />
                 <span>{conditions}</span>
-            </p>
-            <p>
+            </P>
+            <P>
                 <BoldSpan>time:</BoldSpan>
                 <span>{time}</span>
-            </p>
+            </P>
         </div>
     );
 }
