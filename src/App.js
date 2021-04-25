@@ -1,6 +1,6 @@
 //! import dependencies
 import { Route, Switch } from 'react-router-dom';
-import { useContext } from 'react';
+import { createContext } from 'react';
 
 //! import stylesheets
 import 'App.scss';
@@ -12,17 +12,24 @@ import Header from 'components/Header';
 import Settings from 'pages/Settings';
 import Home from 'pages/Home';
 
-function App() {
+//! import data
+const { weatherDataSeed: seed } = require('weatherDataSeed');
+
+const DataContext = createContext(null);
+
+export default function App() {
     return (
         <div className="App">
             <Header />
             <main>
                 <Switch>
-                    <Route
-                        exact
-                        path="/"
-                        render={(props) => <Home {...props} />}
-                    ></Route>
+                    <DataContext.Provider value={seed}>
+                        <Route
+                            exact
+                            path="/"
+                            render={(props) => <Home {...props} />}
+                        ></Route>
+                    </DataContext.Provider>
                     <Route
                         path="/settings"
                         render={(props) => <Settings {...props} />}
@@ -33,4 +40,4 @@ function App() {
     );
 }
 
-export default App;
+export { DataContext };
