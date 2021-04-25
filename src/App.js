@@ -34,6 +34,7 @@ export default function App() {
                         ></Route>
                         {data.map((e, i) => (
                             <Route
+                                key={i}
                                 exact
                                 path={`/${i + 1}`}
                                 render={(props) => (

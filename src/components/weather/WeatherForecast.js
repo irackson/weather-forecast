@@ -9,11 +9,15 @@ const Div = styled.div`
     max-height: 15ch;
 `;
 
-function WeatherForecast({ id, img, conditions, time }) {
+function WeatherForecast({ id, img, conditions, time, temp }) {
     return (
         <Div>
             <WeatherIcon img={img}></WeatherIcon>
-            <WeatherData conditions={conditions} time={time}></WeatherData>
+            <WeatherData
+                conditions={conditions}
+                time={time}
+                temp={temp}
+            ></WeatherData>
             <Link to={`/${id + 1}`}>
                 <button>Enter God Mode</button>
             </Link>
@@ -22,14 +26,3 @@ function WeatherForecast({ id, img, conditions, time }) {
 }
 
 export default WeatherForecast;
-
-{
-    /* <WeatherIcon img={img}></WeatherIcon>
-<WeatherData
-    conditions={conditions}
-    time={time}
-></WeatherData>
-<Link to={`/`}>
-    <button>See Details</button>
-</Link> */
-}

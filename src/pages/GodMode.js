@@ -15,7 +15,26 @@ export default function GodMode(props) {
             <WeatherData
                 conditions={data[props.id].conditions}
                 time={data[props.id].time}
+                temp={data[props.id].temp}
             ></WeatherData>
+            <div>
+                <button
+                    type="button"
+                    onClick={() => {
+                        console.log(data[props.id].temp - 1);
+                    }}
+                >
+                    Increase Rating
+                </button>
+                <button
+                    type="button"
+                    onClick={() => {
+                        console.log(data[props.id].temp - 1);
+                    }}
+                >
+                    Decrease Rating
+                </button>
+            </div>
             <footer>
                 <nav>
                     <Link to="/">

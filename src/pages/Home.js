@@ -11,7 +11,7 @@ const Section = styled.section`
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    row-gap: 1rem;
+    row-gap: 1.5rem;
 `;
 
 export default function Home(props) {
@@ -27,6 +27,7 @@ export default function Home(props) {
                         img={e.img}
                         conditions={e.conditions.join(', ')}
                         time={e.time}
+                        temp={e.temp}
                     ></WeatherForecast>
                 ))}
             </Section>

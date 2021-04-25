@@ -11,9 +11,13 @@ const P = styled.p`
     overflow: visible;
 `;
 
-function WeatherData({ conditions, time }) {
+function WeatherData({ conditions, time, temp }) {
     return (
         <div>
+            <P>
+                <BoldSpan>{temp}℉</BoldSpan>
+            </P>
+
             <P>
                 <BoldSpan>conditions:</BoldSpan>
                 <br />
