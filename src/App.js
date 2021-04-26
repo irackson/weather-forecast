@@ -58,7 +58,6 @@ export default function App() {
                             path="/"
                             render={(props) => <Home {...props} />}
                         ></Route>
-
                         {data.map((e, i) => (
                             <Route
                                 key={i}

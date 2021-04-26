@@ -1,10 +1,8 @@
-import styled from 'styled-components';
+import { DataContext } from 'App';
+import WeatherForecast from 'components/weather/WeatherForecast';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
-import { DataContext } from 'App';
-
-import WeatherForecast from 'components/weather/WeatherForecast';
+import styled from 'styled-components';
 
 const Section = styled.section`
     display: flex;
