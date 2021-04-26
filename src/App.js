@@ -45,19 +45,20 @@ export default function App() {
         <div className="App">
             <Header />
             <main>
-                <Switch>
-                    <DataContext.Provider
-                        value={{
-                            data: weatherState,
-                            addOneToTemp,
-                            subtractOneFromTemp,
-                        }}
-                    >
+                <DataContext.Provider
+                    value={{
+                        data: weatherState,
+                        addOneToTemp,
+                        subtractOneFromTemp,
+                    }}
+                >
+                    <Switch>
                         <Route
                             exact
                             path="/"
                             render={(props) => <Home {...props} />}
                         ></Route>
+
                         {data.map((e, i) => (
                             <Route
                                 key={i}
@@ -73,8 +74,8 @@ export default function App() {
                             render={(props) => <Settings {...props} />}
                         ></Route>
                         <Route render={() => <Redirect to="/" />} />
-                    </DataContext.Provider>
-                </Switch>
+                    </Switch>
+                </DataContext.Provider>
             </main>
         </div>
     );
