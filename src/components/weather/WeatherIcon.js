@@ -6,7 +6,12 @@ const Icon = styled.img`
 `;
 
 function WeatherIcon(props) {
-    return <Icon src={props.img}></Icon>;
+    return (
+        <Icon
+            className="components/weather/WeatherIcon.js__Icon"
+            src={props.img}
+        ></Icon>
+    );
 }
 
 export default WeatherIcon;

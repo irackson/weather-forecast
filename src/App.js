@@ -13,7 +13,7 @@ import Settings from 'pages/Settings';
 import Home from 'pages/Home';
 import GodMode from 'pages/GodMode';
 
-//! import context
+//! import reducers
 import {
     weatherReducer,
     INCREMENT_TEMP,
@@ -22,10 +22,13 @@ import {
 
 //! import data
 const { weatherDataSeed: seed } = require('context/weatherDataSeed');
+const { styleSeed } = require('context/styleSeed');
 
 const DataContext = createContext(seed);
+const StyleContext = createContext(styleSeed);
 
 export default function App() {
+    //* weather data context & reducer stuff
     const data = useContext(DataContext);
     const [weatherState, dispatch] = useReducer(weatherReducer, data);
 
@@ -40,6 +43,10 @@ export default function App() {
             dispatch({ type: DECREMENT_TEMP, index: id });
         }, 1);
     };
+
+    //* variable style context & reducer stuff
+    const styles = useContext(StyleContext);
+    // const [styleState, styleDispatch] = useReducer(styleReducer, StyleContext);
 
     return (
         <div className="App">
@@ -80,4 +87,4 @@ export default function App() {
     );
 }
 
-export { DataContext };
+export { DataContext, StyleContext };
