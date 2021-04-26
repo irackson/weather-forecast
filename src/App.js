@@ -49,41 +49,43 @@ export default function App() {
     // const [styleState, styleDispatch] = useReducer(styleReducer, StyleContext);
 
     return (
-        <div className="App">
-            <Header />
-            <main>
-                <DataContext.Provider
-                    value={{
-                        data: weatherState,
-                        addOneToTemp,
-                        subtractOneFromTemp,
-                    }}
-                >
-                    <Switch>
-                        <Route
-                            exact
-                            path="/"
-                            render={(props) => <Home {...props} />}
-                        ></Route>
-                        {data.map((e, i) => (
+        <StyleContext.Provider value={{ styles: styles }}>
+            <div className="App">
+                <Header />
+                <main>
+                    <DataContext.Provider
+                        value={{
+                            data: weatherState,
+                            addOneToTemp,
+                            subtractOneFromTemp,
+                        }}
+                    >
+                        <Switch>
                             <Route
-                                key={i}
                                 exact
-                                path={`/${i + 1}`}
-                                render={(props) => (
-                                    <GodMode {...props} id={i} />
-                                )}
+                                path="/"
+                                render={(props) => <Home {...props} />}
                             ></Route>
-                        ))}
-                        <Route
-                            path="/settings"
-                            render={(props) => <Settings {...props} />}
-                        ></Route>
-                        <Route render={() => <Redirect to="/" />} />
-                    </Switch>
-                </DataContext.Provider>
-            </main>
-        </div>
+                            {data.map((e, i) => (
+                                <Route
+                                    key={i}
+                                    exact
+                                    path={`/${i + 1}`}
+                                    render={(props) => (
+                                        <GodMode {...props} id={i} />
+                                    )}
+                                ></Route>
+                            ))}
+                            <Route
+                                path="/settings"
+                                render={(props) => <Settings {...props} />}
+                            ></Route>
+                            <Route render={() => <Redirect to="/" />} />
+                        </Switch>
+                    </DataContext.Provider>
+                </main>
+            </div>
+        </StyleContext.Provider>
     );
 }
 
