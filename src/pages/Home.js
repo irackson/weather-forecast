@@ -15,7 +15,7 @@ const Section = styled.section`
 `;
 
 export default function Home(props) {
-    const data = useContext(DataContext);
+    const { data } = useContext(DataContext);
     return (
         <>
             <h2>5-day Forecast</h2>{' '}

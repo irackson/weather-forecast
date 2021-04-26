@@ -7,7 +7,7 @@ import WeatherData from 'components/weather/WeatherData';
 import WeatherIcon from 'components/weather/WeatherIcon';
 
 export default function GodMode(props) {
-    const data = useContext(DataContext);
+    const { data, addOneToTemp, subtractOneFromTemp } = useContext(DataContext);
     return (
         <>
             <h2>Edit Day {props.id + 1}</h2>{' '}
@@ -21,18 +21,18 @@ export default function GodMode(props) {
                 <button
                     type="button"
                     onClick={() => {
-                        console.log(data[props.id].temp - 1);
+                        addOneToTemp(props.id);
                     }}
                 >
-                    Increase Rating
+                    Increase Temp
                 </button>
                 <button
                     type="button"
                     onClick={() => {
-                        console.log(data[props.id].temp - 1);
+                        subtractOneFromTemp(props.id);
                     }}
                 >
-                    Decrease Rating
+                    Decrease Temp
                 </button>
             </div>
             <footer>
