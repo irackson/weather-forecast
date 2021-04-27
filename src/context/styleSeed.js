@@ -69,7 +69,7 @@ const styleSeed = [
 
 const themeSeed = {
     currentTheme: 'default',
-    allThemes: ['default', 'userPreference', 'themeA', 'themeB'],
+    otherThemes: ['userPreference', 'themeA', 'themeB'],
 };
 
 module.exports = {

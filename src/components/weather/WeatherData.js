@@ -23,7 +23,7 @@ const P_props = {};
 
 function WeatherData({ conditions, time, temp }) {
     const { styles, themes } = useContext(StyleContext);
-
+    console.log(themes.currentTheme);
     const styledCommands = getStyledCommands(
         styles,
         themes.currentTheme,

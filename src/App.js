@@ -18,6 +18,8 @@ import {
     weatherReducer,
     INCREMENT_TEMP,
     DECREMENT_TEMP,
+    themeReducer,
+    CHANGE_THEME,
 } from 'context/reducers';
 
 //! import data
@@ -44,13 +46,30 @@ export default function App() {
         }, 1);
     };
 
-    //* variable style/theme context & reducer stuff
+    //* style context & reducer stuff
     const styles = useContext(StyleContext);
     // const [styleState, styleDispatch] = useReducer(styleReducer, StyleContext);
+
+    //* theme context & reducer stuff
     const themes = useContext(ThemeContext);
+    const [themeState, themeDispatch] = useReducer(themeReducer, themes);
+
+    const updateThemeSelection = (selection) => {
+        // if (themes.currentTheme !== selection) {
+        //     setTimeout(() => {
+        //         themeDispatch({ type: CHANGE_THEME, selection: selection });
+        //     }, 1);
+        // }
+        console.log(themes);
+        setTimeout(() => {
+            themeDispatch({ type: CHANGE_THEME, selection: selection });
+        }, 1);
+    };
 
     return (
-        <StyleContext.Provider value={{ styles: styles, themes: themes }}>
+        <StyleContext.Provider
+            value={{ styles, themes: themeState, updateThemeSelection }}
+        >
             <div className="App">
                 <Header />
                 <main>
