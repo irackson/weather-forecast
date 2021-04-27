@@ -22,11 +22,11 @@ const P = styled.p`
 const P_props = {};
 
 function WeatherData({ conditions, time, temp }) {
-    const { styles, theme } = useContext(StyleContext);
+    const { styles, themes } = useContext(StyleContext);
 
     const styledCommands = getStyledCommands(
         styles,
-        theme,
+        themes.currentTheme,
         styledComponentNames,
         relativePath
     );

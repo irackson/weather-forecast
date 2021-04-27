@@ -67,6 +67,12 @@ const styleSeed = [
     },
 ];
 
+const themeSeed = {
+    currentTheme: 'default',
+    allThemes: ['default', 'userPreference', 'themeA', 'themeB'],
+};
+
 module.exports = {
     styleSeed,
+    themeSeed,
 };

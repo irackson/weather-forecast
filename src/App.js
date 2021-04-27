@@ -22,11 +22,11 @@ import {
 
 //! import data
 const { weatherDataSeed: seed } = require('context/weatherDataSeed');
-const { styleSeed } = require('context/styleSeed');
+const { styleSeed, themeSeed } = require('context/styleSeed');
 
 const DataContext = createContext(seed);
 const StyleContext = createContext(styleSeed);
-const ThemeContext = createContext('default');
+const ThemeContext = createContext(themeSeed);
 export default function App() {
     //* weather data context & reducer stuff
     const data = useContext(DataContext);
@@ -44,13 +44,13 @@ export default function App() {
         }, 1);
     };
 
-    //* variable style context & reducer stuff
+    //* variable style/theme context & reducer stuff
     const styles = useContext(StyleContext);
     // const [styleState, styleDispatch] = useReducer(styleReducer, StyleContext);
-    const theme = useContext(ThemeContext);
+    const themes = useContext(ThemeContext);
 
     return (
-        <StyleContext.Provider value={{ styles: styles, theme: theme }}>
+        <StyleContext.Provider value={{ styles: styles, themes: themes }}>
             <div className="App">
                 <Header />
                 <main>
