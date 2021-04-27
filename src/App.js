@@ -26,7 +26,7 @@ const { styleSeed } = require('context/styleSeed');
 
 const DataContext = createContext(seed);
 const StyleContext = createContext(styleSeed);
-
+const ThemeContext = createContext('default');
 export default function App() {
     //* weather data context & reducer stuff
     const data = useContext(DataContext);
@@ -47,9 +47,10 @@ export default function App() {
     //* variable style context & reducer stuff
     const styles = useContext(StyleContext);
     // const [styleState, styleDispatch] = useReducer(styleReducer, StyleContext);
+    const theme = useContext(ThemeContext);
 
     return (
-        <StyleContext.Provider value={{ styles: styles }}>
+        <StyleContext.Provider value={{ styles: styles, theme: theme }}>
             <div className="App">
                 <Header />
                 <main>
@@ -89,4 +90,4 @@ export default function App() {
     );
 }
 
-export { DataContext, StyleContext };
+export { DataContext, StyleContext, ThemeContext };

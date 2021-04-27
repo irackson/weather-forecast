@@ -24,11 +24,11 @@ const MySection = styled.section`
 const MySection_props = {};
 
 function WeatherIcon(props) {
-    const { styles } = useContext(StyleContext);
+    const { styles, theme } = useContext(StyleContext);
 
     const styledCommands = getStyledCommands(
         styles,
-        'default',
+        theme,
         styledComponentNames,
         relativePath
     );
