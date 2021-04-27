@@ -13,10 +13,34 @@ function Settings(props) {
                 <button
                     type="button"
                     onClick={() => {
+                        updateThemeSelection('default');
+                    }}
+                >
+                    use default theme
+                </button>
+                <button
+                    type="button"
+                    onClick={() => {
+                        updateThemeSelection('userPreference');
+                    }}
+                >
+                    update user theme
+                </button>
+                <button
+                    type="button"
+                    onClick={() => {
+                        updateThemeSelection('themeA');
+                    }}
+                >
+                    use themeA
+                </button>
+                <button
+                    type="button"
+                    onClick={() => {
                         updateThemeSelection('themeB');
                     }}
                 >
-                    use themeA theme
+                    use themeB
                 </button>
             </div>
             <footer>

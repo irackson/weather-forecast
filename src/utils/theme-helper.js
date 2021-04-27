@@ -121,8 +121,8 @@ const getStyledCommands = (
                         (m) => m === mode
                     )
                 ] || customizableComponents[i][e].default;
-            const codeExpression = `Object.defineProperty(${styledComponentNames[i]}_props, '${e}', {value : '${val}'})`;
-
+            const codeExpression = `Object.defineProperty(${styledComponentNames[i]}_props, '${e}', {value : '${val}', configurable: true, writable: true})`;
+            // Object.defineProperty({}, 'asdf', {configurable: true, writable: true})
             styledCommands.push(codeExpression);
         });
     }

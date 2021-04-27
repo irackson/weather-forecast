@@ -33,11 +33,12 @@ function WeatherData({ conditions, time, temp }) {
     for (let i = 0; i < styledCommands.length; i++) {
         try {
             // eslint-disable-next-line no-eval
+            console.log(styledCommands[i]);
             eval(styledCommands[i]);
         } catch (error) {
             console.log(
                 '🚀 ~ file: WeatherIcon.js ~ line 39 ~ WeatherIcon ~ error',
-                error
+                error.message
             );
         }
     }
