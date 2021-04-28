@@ -1,4 +1,5 @@
 import { DataContext } from 'App';
+import ThemeApplicator from 'components/user/ThemeApplicator';
 import WeatherForecast from 'components/weather/WeatherForecast';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -28,6 +29,10 @@ export default function Home(props) {
                         temp={e.temp}
                     ></WeatherForecast>
                 ))}
+            </Section>
+            <h4>Pick your Theme</h4>
+            <Section>
+                <ThemeApplicator></ThemeApplicator>
             </Section>
             <footer>
                 <nav>

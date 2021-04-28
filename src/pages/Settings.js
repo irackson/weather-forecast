@@ -1,48 +1,15 @@
+import { StyleContext } from 'App';
+import ThemeCustomizer from 'components/user/ThemeCustomizer';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
-import { StyleContext } from 'App';
 
 function Settings(props) {
     const { styles, themes, updateThemeSelection } = useContext(StyleContext);
 
     return (
         <>
-            <h2>Settings</h2>{' '}
-            <div>
-                <button
-                    type="button"
-                    onClick={() => {
-                        updateThemeSelection('default');
-                    }}
-                >
-                    use default theme
-                </button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        updateThemeSelection('userPreference');
-                    }}
-                >
-                    update user theme
-                </button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        updateThemeSelection('themeA');
-                    }}
-                >
-                    use themeA
-                </button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        updateThemeSelection('themeB');
-                    }}
-                >
-                    use themeB
-                </button>
-            </div>
+            <h2>Customize your Own Theme!</h2>{' '}
+            <ThemeCustomizer></ThemeCustomizer>
             <footer>
                 <nav>
                     <Link to="/">

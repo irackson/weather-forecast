@@ -1,7 +1,7 @@
 import { StyleContext } from 'App';
 import { useContext } from 'react';
-import { getStyledCommands } from 'utils/theme-helper';
 import styled from 'styled-components';
+import { getStyledCommands } from 'utils/theme-helper';
 
 const relativePath = 'src/components/weather/WeatherIcon.js';
 const styledComponentNames = ['Icon', 'MySection'];

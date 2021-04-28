@@ -1,26 +1,17 @@
-//! import dependencies
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { createContext, useContext, useReducer } from 'react';
-
-//! import stylesheets
 import 'App.scss';
-
-//! import components
 import Header from 'components/Header';
-
-//! import pages
-import Settings from 'pages/Settings';
-import Home from 'pages/Home';
-import GodMode from 'pages/GodMode';
-
-//! import reducers
 import {
-    weatherReducer,
-    INCREMENT_TEMP,
-    DECREMENT_TEMP,
-    themeReducer,
     CHANGE_THEME,
+    DECREMENT_TEMP,
+    INCREMENT_TEMP,
+    themeReducer,
+    weatherReducer,
 } from 'context/reducers';
+import GodMode from 'pages/GodMode';
+import Home from 'pages/Home';
+import Settings from 'pages/Settings';
+import { createContext, useContext, useReducer } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 //! import data
 const { weatherDataSeed: seed } = require('context/weatherDataSeed');
