@@ -59,7 +59,7 @@ const styleSeed = [
                 },
                 'background-color': {
                     default: 'black',
-                    userPreference: 'lightblue',
+                    userPreference: null,
                     themeB: 'yellow',
                 },
             },

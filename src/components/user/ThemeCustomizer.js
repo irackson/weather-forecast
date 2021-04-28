@@ -29,9 +29,9 @@ function ThemeCustomizer(props) {
 
     // console.log(watch('userPreferences'));
 
-    const propertyKeys = Object.keys(
-        styles[0].customizableComponents[0]
-    ).filter((e) => e !== 'name');
+    // const propertyKeys = Object.keys(
+    //     file.customizableComponents[0]
+    // ).filter((e) => e !== 'name');
 
     // console.log(propertyKeys);
 
@@ -39,32 +39,53 @@ function ThemeCustomizer(props) {
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <section>
-                    <div>
-                        <h6>{styles[0].path}</h6>
-                        <fieldset
-                            name={styles[0].customizableComponents[0].name}
-                        >
-                            <legend>
-                                {styles[0].customizableComponents[0].name}
-                            </legend>
+                    {styles.map((file) => (
+                        <div>
+                            <fieldset name={file.path}>
+                                <legend>{file.path}</legend>
 
-                            {Object.keys(styles[0].customizableComponents[0])
-                                .filter((e) => e !== 'name')
-                                .map((comp) => (
+                                {file.customizableComponents.map((comp) => (
                                     <>
-                                        <Div>
-                                            <label htmlFor={comp}>{comp}</label>
-                                            <input
-                                                defaultValue={`${styles[0].customizableComponents[0][comp].userPreference}`}
-                                                {...register(
-                                                    `${styles[0].path}.${styles[0].customizableComponents[0].name}.${comp}`
-                                                )}
-                                            ></input>
-                                        </Div>
+                                        <fieldset name={comp.name}>
+                                            <legend>{comp.name}</legend>
+
+                                            {Object.keys(comp)
+                                                .filter((e) => e !== 'name')
+                                                .map((property) => (
+                                                    <>
+                                                        <Div>
+                                                            <label
+                                                                htmlFor={
+                                                                    property
+                                                                }
+                                                            >
+                                                                {property}
+                                                            </label>
+                                                            <input
+                                                                defaultValue={
+                                                                    comp[
+                                                                        property
+                                                                    ]
+                                                                        .userPreference
+                                                                        ? `${comp[property].userPreference}`
+                                                                        : comp[
+                                                                              property
+                                                                          ]
+                                                                              .default
+                                                                }
+                                                                {...register(
+                                                                    `${file.path}.${comp.name}.${property}`
+                                                                )}
+                                                            ></input>
+                                                        </Div>
+                                                    </>
+                                                ))}
+                                        </fieldset>
                                     </>
                                 ))}
-                        </fieldset>
-                    </div>
+                            </fieldset>
+                        </div>
+                    ))}
                 </section>
                 <input type="submit" />
             </form>
