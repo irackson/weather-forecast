@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { getStyledCommands } from 'utils/theme-helper';
 import styled from 'styled-components';
 
-const relativePath = 'src/components/weather/WeatherData.js';
+const relativePath = 'src/components/weather/WeatherData';
 const styledComponentNames = ['BoldSpan', 'P'];
 
 const BoldSpan = styled.span`

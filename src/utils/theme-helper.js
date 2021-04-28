@@ -5,7 +5,7 @@
 // TODO: in each file that uses this util
 //! declare variables (ex...)
 //* in each component file
-// const relativePath = 'src/components/weather/WeatherIcon.js';
+// const relativePath = 'src/components/weather/WeatherIcon';
 //* add each styled component (with props) in the file to this array
 // const styledComponentNames = ['Icon', 'MySection'];
 //* instantiate an empty object for each (with props)

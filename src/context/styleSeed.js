@@ -1,6 +1,6 @@
 const styleSeed = [
     {
-        path: 'src/components/weather/WeatherData.js',
+        path: 'src/components/weather/WeatherData',
         customizableComponents: [
             {
                 name: 'BoldSpan',
@@ -33,7 +33,7 @@ const styleSeed = [
         ],
     },
     {
-        path: 'src/components/weather/WeatherIcon.js',
+        path: 'src/components/weather/WeatherIcon',
         customizableComponents: [
             {
                 name: 'Icon',

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 import { getStyledCommands } from 'utils/theme-helper';
 
-const relativePath = 'src/components/weather/WeatherIcon.js';
+const relativePath = 'src/components/weather/WeatherIcon';
 const styledComponentNames = ['Icon', 'MySection'];
 
 const Icon = styled.img`
