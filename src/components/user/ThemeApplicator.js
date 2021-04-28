@@ -5,43 +5,18 @@ import { StyleContext } from 'App';
 
 function ThemeApplicator(props) {
     const { styles, themes, updateThemeSelection } = useContext(StyleContext);
-
     return (
         <>
-            <div>
+            {themes.otherThemes.map((e) => (
                 <button
                     type="button"
                     onClick={() => {
-                        updateThemeSelection('default');
+                        updateThemeSelection(e);
                     }}
                 >
-                    use default theme
+                    {e}
                 </button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        updateThemeSelection('userPreference');
-                    }}
-                >
-                    update user theme
-                </button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        updateThemeSelection('themeA');
-                    }}
-                >
-                    use themeA
-                </button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        updateThemeSelection('themeB');
-                    }}
-                >
-                    use themeB
-                </button>
-            </div>
+            ))}
         </>
     );
 }

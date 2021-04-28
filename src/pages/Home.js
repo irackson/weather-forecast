@@ -30,14 +30,13 @@ export default function Home(props) {
                     ></WeatherForecast>
                 ))}
             </Section>
-            <h4>Pick your Theme</h4>
-            <Section>
-                <ThemeApplicator></ThemeApplicator>
-            </Section>
             <footer>
+                <h4>Pick your Theme</h4>
+
+                <ThemeApplicator></ThemeApplicator>
                 <nav>
                     <Link to="/settings">
-                        <button>Manage Style Settings</button>
+                        <button>Create / Manage your own Theme</button>
                     </Link>
                 </nav>
             </footer>
