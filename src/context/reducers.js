@@ -48,7 +48,6 @@ const changeTheme = (selection, data) => {
 
     updatedData.otherThemes.unshift(updatedData.currentTheme);
     updatedData.currentTheme = updatedCurrentTheme;
-    console.log(updatedData);
 
     return updatedData;
 };

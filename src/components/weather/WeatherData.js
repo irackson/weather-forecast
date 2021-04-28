@@ -23,7 +23,7 @@ const P_props = {};
 
 function WeatherData({ conditions, time, temp }) {
     const { styles, themes } = useContext(StyleContext);
-    console.log(themes.currentTheme);
+    console.log('on render', themes.currentTheme);
     const styledCommands = getStyledCommands(
         styles,
         themes.currentTheme,
@@ -32,8 +32,8 @@ function WeatherData({ conditions, time, temp }) {
     );
     for (let i = 0; i < styledCommands.length; i++) {
         try {
+            // console.log(styledCommands[i]);
             // eslint-disable-next-line no-eval
-            console.log(styledCommands[i]);
             eval(styledCommands[i]);
         } catch (error) {
             console.log(

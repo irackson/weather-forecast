@@ -47,28 +47,36 @@ export default function App() {
     };
 
     //* style context & reducer stuff
-    const styles = useContext(StyleContext);
-    // const [styleState, styleDispatch] = useReducer(styleReducer, StyleContext);
+    // const [styleState, styleDispatch] = useReducer(styleReducer, useContext(StyleContext));
 
     //* theme context & reducer stuff
-    const themes = useContext(ThemeContext);
-    const [themeState, themeDispatch] = useReducer(themeReducer, themes);
+    const [themeState, themeDispatch] = useReducer(
+        themeReducer,
+        useContext(ThemeContext)
+    );
 
     const updateThemeSelection = (selection) => {
-        // if (themes.currentTheme !== selection) {
-        //     setTimeout(() => {
-        //         themeDispatch({ type: CHANGE_THEME, selection: selection });
-        //     }, 1);
-        // }
-        console.log(themes);
-        setTimeout(() => {
-            themeDispatch({ type: CHANGE_THEME, selection: selection });
-        }, 1);
+        console.log('before', themeState.currentTheme);
+        if (themeState.currentTheme !== selection) {
+            setTimeout(() => {
+                themeDispatch({ type: CHANGE_THEME, selection: selection });
+            }, 1);
+            return;
+        }
+        return;
+
+        // setTimeout(() => {
+        //     themeDispatch({ type: CHANGE_THEME, selection: selection });
+        // }, 1);
     };
 
     return (
         <StyleContext.Provider
-            value={{ styles, themes: themeState, updateThemeSelection }}
+            value={{
+                styles: useContext(StyleContext), // TODO: swap to styleState after writing reducer
+                themes: themeState,
+                updateThemeSelection,
+            }}
         >
             <div className="App">
                 <Header />

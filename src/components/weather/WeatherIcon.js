@@ -33,11 +33,11 @@ function WeatherIcon(props) {
     );
     for (let i = 0; i < styledCommands.length; i++) {
         try {
+            // console.log(styledCommands[i]);
             // eslint-disable-next-line no-eval
-            console.log(styledCommands[i]);
             eval(styledCommands[i]);
         } catch (error) {
-            console.log(
+            console.error(
                 '🚀 ~ file: WeatherIcon.js ~ line 39 ~ WeatherIcon ~ error',
                 error.message
             );
