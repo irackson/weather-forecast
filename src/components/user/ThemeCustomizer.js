@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 
 import styled from 'styled-components';
 
+const gitPath = 'https://github.com/irackson/weather-forecast/blob/main/';
+
 const Div = styled.div`
     display: flex;
     justify-content: center;
@@ -41,7 +43,14 @@ function ThemeCustomizer(props) {
                     {styles.map((file, f) => (
                         <div key={f}>
                             <fieldset name={file.path}>
-                                <legend>{file.path}</legend>
+                                <legend>
+                                    <a
+                                        href={`${gitPath}/${file.path}.js`}
+                                        target="_"
+                                    >
+                                        {file.path}
+                                    </a>
+                                </legend>
 
                                 {file.customizableComponents.map((comp, c) => (
                                     <div key={`${f}.${c}`}>
