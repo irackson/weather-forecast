@@ -60,3 +60,25 @@ export const themeReducer = (state, action) => {
             return state;
     }
 };
+
+//! style reducer
+export const UPDATE_USER_STYLE = 'UPDATE_USER_STYLE';
+
+const updateStyleStateFromUserPreferenceForm = (formData, styles) => {
+    const updatedStyle = { ...styles };
+    updatedStyle[0].customizableComponents[0].color.userPreference =
+        formData['src/components/weather/WeatherData'].BoldSpan.color;
+    return updatedStyle;
+};
+
+export const styleReducer = (state, action) => {
+    switch (action.type) {
+        case UPDATE_USER_STYLE:
+            return updateStyleStateFromUserPreferenceForm(
+                action.preferences,
+                state
+            );
+        default:
+            return state;
+    }
+};

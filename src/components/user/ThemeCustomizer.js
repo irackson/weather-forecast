@@ -1,6 +1,6 @@
 import { StyleContext } from 'App';
 import { useContext } from 'react';
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import styled from 'styled-components';
 
@@ -16,7 +16,12 @@ const Div = styled.div`
 `;
 
 function ThemeCustomizer(props) {
-    const { styles, themes, updateThemeSelection } = useContext(StyleContext);
+    const {
+        styles,
+        updateStyleFromForm,
+        themes,
+        updateThemeSelection,
+    } = useContext(StyleContext);
     const {
         register,
         handleSubmit,
@@ -24,7 +29,7 @@ function ThemeCustomizer(props) {
         formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
-        console.log(data);
+        updateStyleFromForm(data);
     };
 
     // console.log(watch('userPreferences'));

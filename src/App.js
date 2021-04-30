@@ -1,10 +1,12 @@
 import 'App.scss';
 import Header from 'components/Header';
 import {
+    UPDATE_USER_STYLE,
+    styleReducer,
     CHANGE_THEME,
+    themeReducer,
     DECREMENT_TEMP,
     INCREMENT_TEMP,
-    themeReducer,
     weatherReducer,
 } from 'context/reducers';
 import GodMode from 'pages/GodMode';
@@ -38,7 +40,18 @@ export default function App() {
     };
 
     //* style context & reducer stuff
-    // const [styleState, styleDispatch] = useReducer(styleReducer, useContext(StyleContext));
+    const [styleState, styleDispatch] = useReducer(
+        styleReducer,
+        useContext(StyleContext)
+    );
+
+    const updateStyleFromForm = (formData) => {
+        console.log('before', formData);
+        setTimeout(() => {
+            styleDispatch({ type: UPDATE_USER_STYLE, preferences: formData });
+        }, 1);
+        return;
+    };
 
     //* theme context & reducer stuff
     const [themeState, themeDispatch] = useReducer(
@@ -54,17 +67,14 @@ export default function App() {
             }, 1);
             return;
         }
-        return;
-
-        // setTimeout(() => {
-        //     themeDispatch({ type: CHANGE_THEME, selection: selection });
-        // }, 1);
+        return; // TODO: necessary?
     };
 
     return (
         <StyleContext.Provider
             value={{
                 styles: useContext(StyleContext), // TODO: swap to styleState after writing reducer
+                updateStyleFromForm,
                 themes: themeState,
                 updateThemeSelection,
             }}
