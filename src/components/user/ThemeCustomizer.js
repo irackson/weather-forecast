@@ -39,20 +39,20 @@ function ThemeCustomizer(props) {
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <section>
-                    {styles.map((file) => (
-                        <div>
+                    {styles.map((file, f) => (
+                        <div key={f}>
                             <fieldset name={file.path}>
                                 <legend>{file.path}</legend>
 
-                                {file.customizableComponents.map((comp) => (
-                                    <>
+                                {file.customizableComponents.map((comp, c) => (
+                                    <div key={`${f}.${c}`}>
                                         <fieldset name={comp.name}>
                                             <legend>{comp.name}</legend>
 
                                             {Object.keys(comp)
                                                 .filter((e) => e !== 'name')
-                                                .map((property) => (
-                                                    <>
+                                                .map((property, p) => (
+                                                    <div key={`${f}.${c}.${p}`}>
                                                         <Div>
                                                             <label
                                                                 htmlFor={
@@ -78,10 +78,10 @@ function ThemeCustomizer(props) {
                                                                 )}
                                                             ></input>
                                                         </Div>
-                                                    </>
+                                                    </div>
                                                 ))}
                                         </fieldset>
-                                    </>
+                                    </div>
                                 ))}
                             </fieldset>
                         </div>

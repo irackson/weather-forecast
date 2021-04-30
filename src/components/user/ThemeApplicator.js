@@ -7,9 +7,10 @@ function ThemeApplicator(props) {
     const { styles, themes, updateThemeSelection } = useContext(StyleContext);
     return (
         <>
-            {themes.otherThemes.map((e) => (
+            {themes.otherThemes.map((e, i) => (
                 <button
                     type="button"
+                    key={e}
                     onClick={() => {
                         updateThemeSelection(e);
                     }}
