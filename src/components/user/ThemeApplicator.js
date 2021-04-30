@@ -5,7 +5,6 @@ import { StyleContext } from 'App';
 
 function ThemeApplicator(props) {
     const { styles, themes, updateThemeSelection } = useContext(StyleContext);
-    console.log(styles);
     return (
         <>
             {themes.otherThemes.map((e, i) => (

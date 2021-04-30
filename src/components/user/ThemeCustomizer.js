@@ -32,13 +32,7 @@ function ThemeCustomizer(props) {
         updateStyleFromForm(data);
     };
 
-    // console.log(watch('userPreferences'));
-
-    // const propertyKeys = Object.keys(
-    //     file.customizableComponents[0]
-    // ).filter((e) => e !== 'name');
-
-    // console.log(propertyKeys);
+    // console.log('on load', styles);
 
     return (
         <>

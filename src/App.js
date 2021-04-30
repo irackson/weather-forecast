@@ -46,7 +46,7 @@ export default function App() {
     );
 
     const updateStyleFromForm = (formData) => {
-        console.log('before', formData);
+        // console.log('before', formData);
         setTimeout(() => {
             styleDispatch({ type: UPDATE_USER_STYLE, preferences: formData });
         }, 1);

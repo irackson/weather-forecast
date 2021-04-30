@@ -6,13 +6,13 @@ const styleSeed = [
                 name: 'BoldSpan',
                 'padding-right': {
                     default: '0.5rem',
-                    userPreference: '1rem',
+                    userPreference: null,
                     themeA: '4rem',
                     themeB: '3rem',
                 },
                 color: {
                     default: 'green',
-                    userPreference: 'orange',
+                    userPreference: null,
                     themeB: 'brown',
                 },
             },
@@ -20,13 +20,13 @@ const styleSeed = [
                 name: 'P',
                 'font-size': {
                     default: '1rem',
-                    userPreference: '3rem',
+                    userPreference: null,
                     themeA: '2rem',
                     themeB: '1rem',
                 },
                 color: {
                     default: 'green',
-                    userPreference: 'goldenrod',
+                    userPreference: null,
                     themeC: 'gray',
                 },
             },
@@ -39,13 +39,13 @@ const styleSeed = [
                 name: 'Icon',
                 width: {
                     default: '2.5rem',
-                    userPreference: '5rem',
+                    userPreference: null,
                     themeA: '4rem',
                     themeB: '3rem',
                 },
                 height: {
                     default: '2.5rem',
-                    userPreference: '10rem',
+                    userPreference: null,
                     themeB: '6rem',
                 },
             },
@@ -53,7 +53,7 @@ const styleSeed = [
                 name: 'MySection',
                 color: {
                     default: 'white',
-                    userPreference: 'blue',
+                    userPreference: null,
                     themeA: 'orange',
                     themeB: 'gold',
                 },
@@ -68,8 +68,8 @@ const styleSeed = [
 ];
 
 const themeSeed = {
-    currentTheme: 'default',
-    otherThemes: ['userPreference', 'themeA', 'themeB'],
+    currentTheme: 'userPreference',
+    otherThemes: ['default', 'themeA', 'themeB'],
 };
 
 module.exports = {

@@ -65,9 +65,31 @@ export const themeReducer = (state, action) => {
 export const UPDATE_USER_STYLE = 'UPDATE_USER_STYLE';
 
 const updateStyleStateFromUserPreferenceForm = (formData, styles) => {
-    const updatedStyle = { ...styles };
-    updatedStyle[0].customizableComponents[0].color.userPreference =
-        formData['src/components/weather/WeatherData'].BoldSpan.color;
+    const updatedStyle = [...styles];
+    updatedStyle.map((file) => {
+        file.customizableComponents.map((comp) => {
+            // console.log(formData[`${file.path}`]);
+            Object.keys(comp)
+                .filter((e) => e !== 'name')
+                .map((property) => {
+                    // console.log('original', comp[property].userPreference);
+                    comp[property].userPreference =
+                        formData[file.path][comp.name][property];
+                    // const newPref = formData[file.path][comp.name][property];
+                    // console.log(newPref);
+                    // console.log('form', formData[file.path][comp][property]);
+                    // console.log('new', )
+                    return property;
+                });
+
+            return comp;
+        });
+
+        return file;
+    });
+
+    // updatedStyle[0].customizableComponents[0].color.userPreference =
+    //     formData['src/components/weather/WeatherData'].BoldSpan.color;
     return updatedStyle;
 };
 
