@@ -32,7 +32,6 @@ function WeatherData({ conditions, time, temp }) {
     );
     for (let i = 0; i < styledCommands.length; i++) {
         try {
-            // console.log(styledCommands[i]);
             // eslint-disable-next-line no-eval
             eval(styledCommands[i]);
         } catch (error) {

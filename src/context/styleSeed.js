@@ -1,5 +1,37 @@
 const styleSeed = [
     {
+        path: 'src/components/layout/Header',
+        customizableComponents: [
+            {
+                name: 'HeaderContainer',
+                'border-radius': {
+                    default: '0px',
+                    userPreference: null,
+                    themeA: '2rem',
+                    themeB: '4rem',
+                },
+                border: {
+                    default: '2px solid transparent',
+                    userPreference: null,
+                    themeA: '2px solid #a3a52a',
+                    themeB: '2px solid #a52a2a',
+                },
+                'font-size': {
+                    default: '32px',
+                    userPreference: null,
+                    themeA: '16px',
+                    themeB: '48px',
+                },
+                'background-color': {
+                    default: 'transparent',
+                    userPreference: null,
+                    themeA: 'lightgreen',
+                    themeB: 'lightblue',
+                },
+            },
+        ],
+    },
+    {
         path: 'src/components/weather/WeatherData',
         customizableComponents: [
             {
@@ -27,7 +59,8 @@ const styleSeed = [
                 color: {
                     default: 'green',
                     userPreference: null,
-                    themeC: 'gray',
+                    themeA: '#e9d30c',
+                    themeB: '#db4444',
                 },
             },
         ],
@@ -48,9 +81,15 @@ const styleSeed = [
                     userPreference: null,
                     themeB: '6rem',
                 },
+                outline: {
+                    default: '0px solid black',
+                    userPreference: null,
+                    themeA: '3px solid #e5ca97',
+                    themeB: '6px solid #d3b402',
+                },
             },
             {
-                name: 'MySection',
+                name: 'SecretSection',
                 color: {
                     default: 'white',
                     userPreference: null,
@@ -62,14 +101,18 @@ const styleSeed = [
                     userPreference: null,
                     themeB: 'yellow',
                 },
+                display: {
+                    default: 'none',
+                    userPreference: 'visible',
+                },
             },
         ],
     },
 ];
 
 const themeSeed = {
-    currentTheme: 'userPreference',
-    otherThemes: ['default', 'themeA', 'themeB'],
+    currentTheme: 'default',
+    otherThemes: ['userPreference', 'themeA', 'themeB'],
 };
 
 module.exports = {

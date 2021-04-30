@@ -1,5 +1,5 @@
 import 'App.scss';
-import Header from 'components/Header';
+import Header from 'components/layout/Header';
 import {
     UPDATE_USER_STYLE,
     styleReducer,

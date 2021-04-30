@@ -4,24 +4,22 @@ import styled from 'styled-components';
 import { getStyledCommands } from 'utils/theme-helper';
 
 const relativePath = 'src/components/weather/WeatherIcon';
-const styledComponentNames = ['Icon', 'MySection'];
+const styledComponentNames = ['Icon', 'SecretSection'];
 
 const Icon = styled.img`
     width: ${(props) => props.Icon_props['width']};
     height: ${(props) => props.Icon_props['height']};
-    border: 1px solid black;
+    outline: ${(props) => props.Icon_props['outline']};
 `;
 const Icon_props = {};
 
-const MyDiv = styled.div`
-    border: 1px solid pink;
+const SecretSection = styled.section`
+    background-color: ${(props) =>
+        props.SecretSection_props['background-color']};
+    color: ${(props) => props.SecretSection_props['color']};
+    display: ${(props) => props.SecretSection_props['display']};
 `;
-
-const MySection = styled.section`
-    background-color: ${(props) => props.MySection_props['background-color']};
-    color: ${(props) => props.MySection_props['color']};
-`;
-const MySection_props = {};
+const SecretSection_props = {};
 
 function WeatherIcon(props) {
     const { styles, themes } = useContext(StyleContext);
@@ -33,7 +31,6 @@ function WeatherIcon(props) {
     );
     for (let i = 0; i < styledCommands.length; i++) {
         try {
-            // console.log(styledCommands[i]);
             // eslint-disable-next-line no-eval
             eval(styledCommands[i]);
         } catch (error) {
@@ -51,8 +48,9 @@ function WeatherIcon(props) {
                 src={props.img}
                 Icon_props={Icon_props}
             ></Icon>
-            <MySection MySection_props={MySection_props}>MySection</MySection>
-            <MyDiv>😄</MyDiv>
+            <SecretSection SecretSection_props={SecretSection_props}>
+                SecretSection
+            </SecretSection>
         </>
     );
 }
