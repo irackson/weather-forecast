@@ -1,3 +1,10 @@
+# TODO
+
+1. use csstree-validator to validate form input and if there is an issue display that message by the property
+2. allow a dynamic add property/value to each customizableComponent, and also validate that it is a css property and a proper css value for that property
+3. santize css wherever nessesary sanitize where ness
+4. allow admins to edit the themes just like one would edit userPreference
+
 <br>
 Title: Passing Props<br>
 Duration: 1hr+<br>

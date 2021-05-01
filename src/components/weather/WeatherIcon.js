@@ -6,10 +6,24 @@ import { getStyledCommands } from 'utils/theme-helper';
 const relativePath = 'src/components/weather/WeatherIcon';
 const styledComponentNames = ['Icon', 'SecretSection'];
 
+/* const newStyles = {
+    'background-color': 'blue',
+    'padding-right': '5px',
+    'padding-top': '200px',
+    'padding-bottom': '3px',
+};
+
+let newStyleString = '';
+const newKeys = Object.keys(newStyles);
+for (let i = 0; i < newKeys.length; i++) {
+    newStyleString += `${newKeys[i]}: ${newStyles[newKeys[i]]}; `;
+}*/
+
 const Icon = styled.img`
     width: ${(props) => props.Icon_props['width']};
     height: ${(props) => props.Icon_props['height']};
     outline: ${(props) => props.Icon_props['outline']};
+    /* ${(props) => props.newStyleString} */
 `;
 const Icon_props = {};
 
@@ -47,6 +61,7 @@ function WeatherIcon(props) {
                 className="components/weather/WeatherIcon.js__Icon"
                 src={props.img}
                 Icon_props={Icon_props}
+                // newStyleString={newStyleString}
             ></Icon>
             <SecretSection SecretSection_props={SecretSection_props}>
                 SecretSection

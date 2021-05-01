@@ -1,8 +1,9 @@
 import { StyleContext } from 'App';
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
 import styled from 'styled-components';
+const { validate } = require('csstree-validator');
 
 const gitPath = 'https://github.com/irackson/weather-forecast/blob/main/';
 
@@ -15,6 +16,11 @@ const Div = styled.div`
     > label {
         font-size: 10px;
     }
+`;
+
+const P = styled.p`
+    font-size: 12px;
+    color: red;
 `;
 
 function ThemeCustomizer(props) {
@@ -34,13 +40,40 @@ function ThemeCustomizer(props) {
         updateStyleFromForm(data);
     };
 
-    // console.log('on load', styles);
+    const [stylesWithSyntax, setStylesWithSyntax] = useState(styles);
+    const handleChange = (event) => {
+        event.preventDefault();
+        const changingPath = event.target.name.split('.')[0];
+        const changingComp = event.target.name.split('.')[1];
+        const changingProp = event.target.name.split('.')[2];
+        const currentVal = event.target.value;
+
+        const validation = validate(`.validate {
+            ${changingProp} : ${currentVal};
+        }`);
+
+        const updatedStylesWithSyntax = [...stylesWithSyntax];
+        const changingPathIndex = updatedStylesWithSyntax.findIndex(
+            (e) => e.path === changingPath
+        );
+        const changingPropIndex = updatedStylesWithSyntax[
+            changingPathIndex
+        ].customizableComponents.findIndex((e) => e.name === changingComp);
+
+        updatedStylesWithSyntax[changingPathIndex].customizableComponents[
+            changingPropIndex
+        ][changingProp].message = validation[0]?.message;
+        updatedStylesWithSyntax[changingPathIndex].customizableComponents[
+            changingPropIndex
+        ][changingProp].syntax = validation[0]?.syntax;
+        setStylesWithSyntax(updatedStylesWithSyntax);
+    };
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} onChange={handleChange}>
                 <section>
-                    {styles.map((file, f) => (
+                    {stylesWithSyntax.map((file, f) => (
                         <div key={f}>
                             <fieldset name={file.path}>
                                 <legend>
@@ -62,6 +95,27 @@ function ThemeCustomizer(props) {
                                                 .map((property, p) => (
                                                     <div key={`${f}.${c}.${p}`}>
                                                         <Div>
+                                                            {comp[property]
+                                                                .message ? (
+                                                                <P>
+                                                                    {
+                                                                        comp[
+                                                                            property
+                                                                        ]
+                                                                            .message
+                                                                    }
+                                                                </P>
+                                                            ) : null}
+                                                            {comp[property]
+                                                                .syntax ? (
+                                                                <P>
+                                                                    {
+                                                                        comp[
+                                                                            property
+                                                                        ].syntax
+                                                                    }
+                                                                </P>
+                                                            ) : null}
                                                             <label
                                                                 htmlFor={
                                                                     property
