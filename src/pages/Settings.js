@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 function Settings(props) {
     const { styles, themes, updateThemeSelection } = useContext(StyleContext);
-
     return (
         <>
             <h2>Customize your Own Theme!</h2>{' '}
