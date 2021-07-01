@@ -158,7 +158,7 @@ function ThemeCustomizer(props) {
 
         const newPair = {};
         newPair[`${newRule.property}`] = {
-            default: 'unset',
+            // default: 'unset',
             userPreference: `${newRule.userPreference}`,
         };
         const updatedStylesWithSyntax = [...stylesWithSyntax];
